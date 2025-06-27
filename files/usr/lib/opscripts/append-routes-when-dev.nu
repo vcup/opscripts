@@ -7,11 +7,11 @@ let fact: record = open '/etc/opscripts/append-routes-when-dev.nuon'
 
 def main []: nothing -> nothing {
   $fact | transpose a b | each {
-    let dev = $in.a
-    let routerule = $in.b
+    let dev: string = $in.a
+    let routerule: list<string> = $in.b
     while (ip link | lines | all { $in !~ $'($dev):' }) { sleep 1sec }
 
-    ip route add $routerule
+    ip route add ...($routerule)
   }
 
   return
