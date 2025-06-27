@@ -1,0 +1,13 @@
+[Unit]
+Description=Get ipv6 address and use it to configure radvd.conf
+After=network.target
+Wants=network.target
+PartOf=maintain-lanhosts-route.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/opscripts/maintain-lanhosts-route-v6.sh %i
+Environment="UNTIL_DEV_EXIST=true"
+
+[Install]
+WantedBy=multi-user.target

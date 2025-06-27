@@ -1,0 +1,12 @@
+[Unit]
+Description=add route rule after dev exists
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+type=oneshot
+ExecStart=/usr/lib/opscripts/append-routes-when-dev.nu
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

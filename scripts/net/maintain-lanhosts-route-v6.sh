@@ -1,0 +1,1 @@
+../../files/usr/lib/opscripts/maintain-lanhosts-route-v6.sh
