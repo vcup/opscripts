@@ -1,0 +1,11 @@
+[Unit]
+Description=execute mdns-ifonly.sh to setup mdns
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/opscripts/mdns-ifonly.sh
+
+[Install]
+WantedBy=multi-user.target
